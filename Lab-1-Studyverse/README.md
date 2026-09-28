@@ -44,3 +44,18 @@ logo.svg     StudyVerse logo
 Open `index.html` in a browser.
 
 *The CGPA numbers in chapter 2 are examples, not my real grades.*
+
+## Publish on GitHub Pages
+
+This project is ready to publish from the repository `docs` folder.
+
+1. Keep these deploy files in `/home/runner/work/CCT360/CCT360/docs`:
+   - `index.html`
+   - `style.css`
+   - `script.js`
+   - `logo.svg`
+2. In GitHub, open **Settings → Pages**.
+3. Set **Source** to **Deploy from a branch**.
+4. Select branch **main** and folder **/docs**.
+5. Save and wait for deployment, then open:
+   `https://varnan234.github.io/CCT360/`

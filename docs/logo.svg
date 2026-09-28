@@ -1,0 +1,3 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 160 160" role="img" aria-label="StudyVerse Arc + North mark"><title>StudyVerse Arc + North</title><g id="arc" fill="none" stroke="#F0F0F8" stroke-width="24" stroke-linecap="round"><path id="arc-path" d="M132 86 A53 53 0 1 1 79 28"/></g>
+<g id="corner" fill="none" stroke="#818CF8" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"><path id="corner-path" d="M79 28 H132 V86"/></g>
+<g id="north-star" fill="#F0F0F8"><path id="star-path" d="M80 57 L86 74 L103 80 L86 86 L80 103 L74 86 L57 80 L74 74 Z"/></g></svg>
