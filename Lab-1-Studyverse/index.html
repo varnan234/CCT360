@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyVerse Story</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="top">
+
+  <!-- progress bar at the top -->
+  <div id="progress"></div>
+
+  <!-- background layer: big faint shapes from the logo, they scroll slower than the page -->
+  <div class="background">
+    <svg class="bg-arc" viewBox="0 0 160 160">
+      <path d="M132 86 A53 53 0 1 1 79 28"/>
+    </svg>
+    <svg class="bg-star" viewBox="50 50 60 60">
+      <path d="M80 57 L86 74 L103 80 L86 86 L80 103 L74 86 L57 80 L74 74 Z"/>
+    </svg>
+  </div>
+
+  <!-- intro -->
+  <header class="hero">
+    <div class="logo-wrap">
+      <img src="logo.svg" alt="StudyVerse logo" class="logo">
+    </div>
+    <div class="hero-text">
+      <h1>StudyVerse</h1>
+      <p>Why I built a dashboard for my own grades.</p>
+      <p class="small">scroll down</p>
+    </div>
+  </header>
+
+  <!-- chapter 1 -->
+  <section class="chapter">
+    <p class="small reveal">01 - Three tabs</p>
+    <h2 class="reveal">Canvas. ACORN. Quercus.</h2>
+    <p class="reveal">Each one tells me what's due. None of them tells me what a grade does
+      to my CGPA, or which assignment is actually worth my Tuesday night. The transcript
+      only updates after the semester ends, so mid-term I'm basically guessing.</p>
+  </section>
+
+  <!-- chapter 2 (sticky section) -->
+  <section id="sticky-section">
+    <div class="sticky-box">
+      <p class="small">02 - One question</p>
+
+      <div class="numbers">
+        <p class="number first">3.18</p>
+        <p class="number second">3.27</p>
+      </div>
+      <p class="small">CGPA</p>
+
+      <div class="bar-back"><div id="bar-fill"></div></div>
+
+      <div class="captions">
+        <p class="caption cap1">Say I get an 84 on the midterm.</p>
+        <p class="caption cap2">My course grade goes up to 81 and my CGPA goes to 3.27.</p>
+        <p class="caption cap3">My target is still possible, and now I actually know it.</p>
+      </div>
+      <p class="small">(example numbers)</p>
+    </div>
+  </section>
+
+  <!-- chapter 3 -->
+  <section class="chapter">
+    <p class="small reveal">03 - So I built it</p>
+    <h2 class="reveal">One place for the numbers.</h2>
+    <div class="box reveal-left">
+      <h3>Grading</h3>
+      <p>The UofT grading scale is built in, so things like CR don't count toward the CGPA.</p>
+    </div>
+    <div class="box reveal-right">
+      <h3>Targets</h3>
+      <p>I set a goal for each course and it warns me if I'm falling behind.</p>
+    </div>
+    <div class="box reveal-left">
+      <h3>Claude</h3>
+      <p>I can ask "what should I study this week?" and it answers using my real grades.</p>
+    </div>
+  </section>
+
+  <!-- chapter 4 -->
+  <section class="chapter ending">
+    <p class="small reveal">04 - North star</p>
+    <h2 class="reveal">The arc is where you stand.</h2>
+    <h2 class="reveal">The star is where you're going.</h2>
+    <a href="#top" class="button reveal">Back to top</a>
+  </section>
+
+</body>
+</html>

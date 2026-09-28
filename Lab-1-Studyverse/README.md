@@ -1,0 +1,46 @@
+# StudyVerse: A Scrolling Story
+
+A single-page website that tells the story of StudyVerse, a grades dashboard I built for myself. You move through the story by scrolling.
+
+## The story
+
+It's the middle of the semester and I have three tabs open: Canvas, ACORN and Quercus. All three tell me what's due. None of them can tell me what an 84 on a midterm does to my CGPA, or which assignment actually deserves my Tuesday night. The official transcript only updates once the semester is over, and by then it's too late to change anything.
+
+So I had one question. If I get an 84 on this midterm, where does that leave me?
+
+I couldn't find anything that answered it, so I built StudyVerse. It knows the UofT grading scale, including notations like CR that don't count toward the CGPA. It lets me set a target for each course and warns me when a target starts slipping. I also connected it to Claude, so I can ask "what should I study this week?" and get an answer that comes from my real grades.
+
+The logo is an arc with a star in the middle. The arc shows where you stand right now, and the star shows where you're headed.
+
+## Sections
+
+| Section | What happens |
+|---|---|
+| Intro | The logo fades in. When you scroll, the logo and the title move at different speeds (parallax) and fade out. |
+| 01 · Three tabs | The text fades in and slides up when it reaches the screen. |
+| 02 · One question | A sticky section: the bar fills, the CGPA changes from 3.18 to 3.27 and the caption changes as you scroll. |
+| 03 · So I built it | Three boxes slide in, alternating from the left and the right. |
+| 04 · North star | The closing lines and a "Back to top" link. |
+
+## What I used
+
+The whole site is HTML and CSS, with no JavaScript.
+
+- **Scroll-driven animations**: `animation-timeline: scroll()` ties an animation to how far you've scrolled down the page (progress bar, parallax). `animation-timeline: view()` ties it to an element moving through the screen (fade-ins, the sticky section).
+- **CSS transforms**: `translateY` for the parallax, `translateX` for the slide-ins, `scaleX` for the bars and `rotate` for the background shapes.
+- **Transitions**: hovering a box or the button changes its colour and position smoothly.
+- **Layered layout**: a fixed background layer with two big faint shapes from the logo sits behind the content (`z-index: -1`). The arc scrolls slower than the star, so they look like separate layers. The progress bar sits on top (`z-index: 10`), and chapter 2 stays in place with `position: sticky`.
+
+## Files
+
+```
+index.html   the page and the story text
+style.css    colours, layout and all the animations
+logo.svg     StudyVerse logo
+```
+
+## How to run
+
+Open `index.html` in a browser. Scroll animations need a recent version of Chrome, Edge or Safari. Older browsers still show all the content, just without the animations.
+
+*The CGPA numbers in chapter 2 are examples, not my real grades.*
