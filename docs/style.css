@@ -1,0 +1,423 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #08080F;
+  color: #F0F0F8;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 80px;
+  margin-top: 20px;
+}
+
+h2 {
+  font-size: 44px;
+  margin-bottom: 20px;
+}
+
+.small {
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  color: #9a9ab0;
+}
+
+/* ============ SCROLL ANIMATIONS ============
+   animation-timeline: scroll() = the animation follows the page scroll
+   animation-timeline: view()   = the animation follows an element moving through the screen
+   (animation-timeline has to come AFTER animation, or it gets reset) */
+
+/* progress bar */
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #818CF8;
+  transform-origin: left;
+  z-index: 10;
+  animation: grow linear;
+  animation-timeline: scroll(root);
+}
+
+@keyframes grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* background layer (behind everything) */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.background path {
+  fill: none;
+  stroke: #1a1a26;
+  stroke-width: 3;
+}
+
+.bg-arc {
+  position: absolute;
+  width: 600px;
+  top: 10%;
+  right: -150px;
+  animation: slowUp linear;
+  animation-timeline: scroll(root);
+}
+
+.bg-star {
+  position: absolute;
+  width: 250px;
+  top: 60%;
+  left: -40px;
+  animation: fastUp linear;
+  animation-timeline: scroll(root);
+}
+
+/* the arc moves slower than the star, so they look like different layers */
+@keyframes slowUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-40vh) rotate(40deg); }
+}
+
+@keyframes fastUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-120vh) rotate(-90deg); }
+}
+
+/* intro */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.logo {
+  width: 120px;
+  animation: fadeIn 1.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* parallax: the logo moves down faster than the text while it fades out */
+.logo-wrap {
+  animation: logoAway linear both;
+  animation-timeline: scroll(root);
+  animation-range: 0 100vh;
+}
+
+.hero-text {
+  animation: textAway linear both;
+  animation-timeline: scroll(root);
+  animation-range: 0 100vh;
+}
+
+@keyframes logoAway {
+  to {
+    transform: translateY(60vh);
+    opacity: 0;
+  }
+}
+
+@keyframes textAway {
+  to {
+    transform: translateY(30vh);
+    opacity: 0;
+  }
+}
+
+/* chapters */
+.chapter {
+  min-height: 100vh;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chapter p {
+  font-size: 18px;
+}
+
+.box {
+  border: 1px solid #22222e;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #08080F;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.box:hover {
+  border-color: #818CF8;
+  transform: translateY(-5px);
+}
+
+.box h3 {
+  color: #818CF8;
+}
+
+.ending {
+  text-align: center;
+  align-items: center;
+}
+
+/* reveal on scroll */
+.reveal {
+  animation: fadeUp linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 30%;
+}
+
+.reveal-left {
+  animation: fromLeft linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 30%;
+}
+
+.reveal-right {
+  animation: fromRight linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 30%;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fromRight {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* sticky section */
+#sticky-section {
+  height: 300vh;
+  view-timeline: --story;
+}
+
+.sticky-box {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* the two numbers sit on top of each other and swap */
+.numbers {
+  position: relative;
+  width: 300px;
+  height: 110px;
+}
+
+.number {
+  position: absolute;
+  width: 100%;
+  font-size: 90px;
+  font-weight: bold;
+  line-height: 110px;
+}
+
+.bar-back {
+  width: 300px;
+  height: 12px;
+  background-color: #22222e;
+  border-radius: 6px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+#bar-fill {
+  width: 100%;
+  height: 100%;
+  background-color: #F0F0F8;
+  transform-origin: left;
+  animation: fillBar linear both;
+  animation-timeline: --story;
+  animation-range: contain 0% contain 100%;
+}
+
+/* 3.18 out of 4 = 79.5%, 3.27 out of 4 = 81.75% */
+@keyframes fillBar {
+  0% { transform: scaleX(0); }
+  30% { transform: scaleX(0.795); }
+  40% { transform: scaleX(0.795); }
+  65% { transform: scaleX(0.8175); background-color: #F0F0F8; }
+  75% { background-color: #818CF8; }
+  100% { transform: scaleX(0.8175); background-color: #818CF8; }
+}
+
+/* captions sit on top of each other and take turns */
+.captions {
+  position: relative;
+  width: 400px;
+  max-width: 90vw;
+  height: 90px;
+}
+
+.caption {
+  position: absolute;
+  width: 100%;
+  font-size: 24px;
+  opacity: 0;
+}
+
+.first,
+.cap1 {
+  animation: showFirst linear both;
+  animation-timeline: --story;
+  animation-range: contain 0% contain 40%;
+}
+
+.cap2 {
+  animation: showMiddle linear both;
+  animation-timeline: --story;
+  animation-range: contain 40% contain 70%;
+}
+
+.second,
+.cap3 {
+  animation: showLast linear both;
+  animation-timeline: --story;
+  animation-range: contain 70% contain 100%;
+}
+
+.second {
+  animation-range: contain 40% contain 100%;
+}
+
+@keyframes showFirst {
+  0% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes showMiddle {
+  0% { opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes showLast {
+  0% { opacity: 0; }
+  15% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+/* button */
+.button {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #F0F0F8;
+  color: #08080F;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #818CF8;
+}
+
+/* older browsers without scroll animations: just show everything */
+@supports not (animation-timeline: view()) {
+  .first,
+  .cap1,
+  .cap2 {
+    display: none;
+  }
+  .second,
+  .cap3 {
+    opacity: 1;
+  }
+  #bar-fill {
+    transform: scaleX(0.8175);
+  }
+  #progress {
+    display: none;
+  }
+}
+
+/* phones */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 50px;
+  }
+  h2 {
+    font-size: 30px;
+  }
+  .number {
+    font-size: 60px;
+  }
+  .bar-back {
+    width: 220px;
+  }
+  .caption {
+    font-size: 20px;
+  }
+  .bg-arc {
+    width: 350px;
+  }
+}
