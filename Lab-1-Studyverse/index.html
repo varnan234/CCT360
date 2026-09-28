@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyVerse Story</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- progress bar at the top -->
+  <div id="progress"></div>
+
+  <!-- intro (logo and text move at different speeds = parallax) -->
+  <header class="hero">
+    <img src="logo.svg" alt="StudyVerse logo" class="logo" id="logo">
+    <div id="hero-text">
+      <h1>StudyVerse</h1>
+      <p>Why I built a dashboard for my own grades.</p>
+      <p class="small">scroll down</p>
+    </div>
+  </header>
+
+  <!-- chapter 1 -->
+  <section class="chapter">
+    <p class="small hidden">01 - Three tabs</p>
+    <h2 class="hidden">Canvas. ACORN. Quercus.</h2>
+    <p class="hidden">Each one tells me what's due. None of them tells me what a grade does
+      to my CGPA, or which assignment is actually worth my Tuesday night. The transcript
+      only updates after the semester ends, so mid-term I'm basically guessing.</p>
+  </section>
+
+  <!-- chapter 2 (sticky section) -->
+  <section id="sticky-section">
+    <div class="sticky-box">
+      <p class="small">02 - One question</p>
+      <p id="number">0.00</p>
+      <p class="small">CGPA</p>
+      <div class="bar-back"><div id="bar-fill"></div></div>
+      <p id="caption">Say I get an 84 on the midterm.</p>
+      <p class="small">(example numbers)</p>
+    </div>
+  </section>
+
+  <!-- chapter 3 -->
+  <section class="chapter">
+    <p class="small hidden">03 - So I built it</p>
+    <h2 class="hidden">One place for the numbers.</h2>
+    <div class="box hidden from-left">
+      <h3>Grading</h3>
+      <p>The UofT grading scale is built in, so things like CR don't count toward the CGPA.</p>
+    </div>
+    <div class="box hidden from-right">
+      <h3>Targets</h3>
+      <p>I set a goal for each course and it warns me if I'm falling behind.</p>
+    </div>
+    <div class="box hidden from-left">
+      <h3>Claude</h3>
+      <p>I can ask "what should I study this week?" and it answers using my real grades.</p>
+    </div>
+  </section>
+
+  <!-- chapter 4 -->
+  <section class="chapter ending">
+    <p class="small hidden">04 - North star</p>
+    <h2 class="hidden">The arc is where you stand.</h2>
+    <h2 class="hidden">The star is where you're going.</h2>
+    <button id="top-button" class="hidden">Back to top</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
