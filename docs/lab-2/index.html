@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyVerse Part 2</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- same faint arc and star from part 1 -->
+  <div class="background">
+    <svg class="bg-arc" viewBox="0 0 160 160">
+      <path d="M132 86 A53 53 0 1 1 79 28"/>
+    </svg>
+    <svg class="bg-star" viewBox="50 50 60 60">
+      <path d="M80 57 L86 74 L103 80 L86 86 L80 103 L74 86 L57 80 L74 74 Z"/>
+    </svg>
+  </div>
+
+  <!-- intro -->
+  <header class="hero">
+    <img src="logo.svg" alt="StudyVerse logo" class="logo">
+    <h1>StudyVerse</h1>
+    <p>Part 2: Now you try.</p>
+    <p class="small" id="clock">00:00:00</p>
+  </header>
+
+  <!-- chapter 5: mouse -->
+  <section class="chapter">
+    <p class="small">05 - Your turn</p>
+    <h2>Last time I picked 84. Now you pick.</h2>
+    <p>Move the slider to choose a midterm grade.</p>
+
+    <div class="box">
+      <p>Midterm grade: <span id="grade">84</span>%</p>
+      <input type="range" id="slider" min="0" max="100" value="84">
+
+      <p class="number" id="cgpa">3.27</p>
+      <p class="small">CGPA (it was 3.18)</p>
+
+      <div class="bar-back"><div id="bar-fill"></div></div>
+      <p id="message">Your CGPA goes up!</p>
+    </div>
+  </section>
+
+  <!-- chapter 6: keyboard -->
+  <section class="chapter">
+    <p class="small">06 - Day or night</p>
+    <h2>Some people study at 2pm. Some at 2am.</h2>
+    <p>Press <b>T</b> on your keyboard or click the button to switch.</p>
+    <button id="theme-button" class="button">Change theme</button>
+  </section>
+
+  <!-- chapter 7: window -->
+  <section class="chapter">
+    <p class="small">07 - Any screen</p>
+    <h2>Check your grades on your laptop or your phone.</h2>
+    <p>Try making this window smaller.</p>
+
+    <div class="box">
+      <p>Your window is <span id="width">0</span>px wide.</p>
+      <p id="screen-type">Looks like a laptop.</p>
+    </div>
+  </section>
+
+  <!-- ending -->
+  <section class="chapter ending">
+    <p class="small">08 - Still the north star</p>
+    <h2>Same arc. Same star. Now it's your number.</h2>
+    <a href="../" class="button">Back to Part 1</a>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
